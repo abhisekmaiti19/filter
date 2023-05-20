@@ -11,9 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <script src="repeat.min.js"></script>
-
-    <!-- <link rel="stylesheet" href=""> -->
     <title>Filter Profession</title>
   </head>
   <body>
@@ -22,7 +19,7 @@
         <h3>Filter ui cards via their profession</h3>
         <div class="select-wrapper">
           <select name="select" id="select">
-            <option id="opt" value="profession">Profession</option>
+            <option id="opt" value="" disabled>Profession</option>
             <option id="opt" value="developer">Developer</option>
             <option id="opt" value="admin">Admin</option>
           </select>
@@ -41,18 +38,18 @@
             <h5>Age:</h5>
           </div> -->
         </div>
-        <button onclick="filterresult()">Filter</button>
+        <button onclick="filterItems()">Filter</button>
       </div>
       <div class="addSection">
         <h1>Add a new user</h1>
-        <form action="">
+        <form onsubmit="event.preventDefault(); clicknclick();">
           <label for="">Enter Name</label>
           <label for="">Enter Profession</label>
           <label for="">Enter Age</label>
           <input type="text" id="name" required />
           <input type="text" id="prof" required />
           <input type="number" id="age" required />
-          <button class="adduser" onclick="clicknclick()">Add User</button>
+          <button class="adduser">Add User</button>
         </form>
       </div>
     </div>

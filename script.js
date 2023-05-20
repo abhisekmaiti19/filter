@@ -1,124 +1,86 @@
-let myelm = document.getElementById("cardAll");
-let mname = document.getElementById("name");
-let prof = document.getElementById("prof");
-let mage = document.getElementById("age");
-let user = [{id:1,name:"john",profession:"developer",age:"18"},{id:2, name:"jack", profession:"developer",age:"20"},{id:3, name:"karen",profession:"admin", age:"19"}];
-// user.push({id:4,name:"john",profession:"developer",age:"18"})
+// Data Store
+const users = [
+    {id:1, name:"john", profession:"developer", age:"18"},
+    {id:2, name:"jack", profession:"developer", age:"20"},
+    {id:3, name:"karen", profession:"admin", age:"19"}
+];
 
-function addElem(){ 
+// Elements
+let cardsContainer = document.getElementById("cardAll");
+let nameInputField = document.getElementById("name");
+let profInputField = document.getElementById("prof");
+let ageInputField = document.getElementById("age");
 
-      
+const addElem = ()=>{ 
+    let newID = (users.length+1);
+    let userName = nameInputField.value;
+    let profession = profInputField.value;
+    let age = ageInputField.value;
+
+    if(validate(userName) && validate(profession) && validate(age, "age")) {
+        let newUser = {
+            id:newID,
+            name: userName,
+            profession: profession,
+            age: age
+        };
     
-        let latestLenght = user.length+1;
-        let myid = latestLenght;
-        let dataObj = {
-
-        id:myid,
-        name: mname.value,
-        profession: prof.value,
-        age: mage.value
-
-    };        
-
-
-    return dataObj;
-   
-            
-        
+        return newUser;
+    }
+    alert("Enter valid details");
+    return null;
+    
 }
 
-function clicknclick(){
-    let datadata = addElem();
-    user.push(datadata);
-    perfrom(datadata);
+const validate = (item, type = "name")=> {
+    switch (type){
+        case "prof":
+        case "name":
+            if (item.trim() === "") return false;
+            break;
+
+        case "age":
+            if (item.trim() === "") return false;
+            if (item<1) return false;
+    }
+    return true;
 }
 
+const clicknclick = () => {
+    
+    let newUserElement = addElem();
+    if(newUserElement) users.push(newUserElement);
+    updateDOM();
+}
 
-function perfrom(myobj)
-{
+const createNode = (user)=>{
     let customElm = document.createElement("div");
     customElm.className = "resultBox";
-    function myObjFun(data){
+
+    let myDataArr = Object.keys(user);
+    console.log(myDataArr);
+    myDataArr.forEach((key) => {
         let h5Elm = document.createElement("h5");
-        h5Elm.innerText = data;
-        customElm.append(h5Elm);
-    }
+        h5Elm.innerText = `${key.charAt(0).toUpperCase() + key.substring(1)}: ${user[key]}`;
+        customElm.appendChild(h5Elm);
+    });
 
-    let myDataArr = Object.keys(myobj);
-    for(let i = 0; i<4; i++)
-    {
-        if(i == 0){
-            myObjFun(`${myobj[myDataArr[i]]}.`);
-        }
-
-        if(i == 1){
-            myObjFun(`Name: ${myobj[myDataArr[i]]}`);
-        }
-
-        if(i == 2){
-            myObjFun(`Profession: ${myobj[myDataArr[i]]}`);
-        }
-
-        if(i == 3){
-            myObjFun(`Age: ${myobj[myDataArr[i]]}`);
-        }
-        
-    }
-    
-    myelm.append(customElm);
+    return customElm;
 }
 
-for(let i = 0; i<user.length; i++){
+const updateDOM = (filter = "all") => {
+    cardsContainer.innerHTML = "";
 
-    perfrom(user[i]);
+    updatedUsersList = filter=="all"?users:users.filter(user=>user.profession==filter);
+    updatedUsersList.forEach(user =>{
+        cardsContainer.appendChild(createNode(user));
+    })
 }
 
-
-// filtering
-
-function filterresult(){
-    let dropValue = document.getElementById("opt");
-    if(dropValue.value === "admin"){
-
-        for(let i = 0; i<user.length; i++){
-            if(user[i].profession === "admin")
-            {
-                perfrom(user[i]);
-            }
-            
-        }
-
-    } else if (dropValue.value === "developer"){
-
-        for(let j = 0; j<user.length; j++){
-            if(user[i].profession === "developer")
-            {
-                perfrom(user[i]);
-            }
-            
-        }
-
-    }else{
-
-        for(let j = 0; j<user.length; j++){
-
-                perfrom(user[i]);
-            
-            
-        }
-
-        
-    }
+const filterItems = ()=>{
+    let filter = document.querySelector("#select").value;
+    updateDOM(filter);
 }
 
-
-
-
-
-
-
-
-
-
-
+updateDOM();
 
