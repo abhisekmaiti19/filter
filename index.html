@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script src="repeat.min.js"></script>
+
+    <!-- <link rel="stylesheet" href=""> -->
+    <title>Filter Profession</title>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="filter">
+        <h3>Filter ui cards via their profession</h3>
+        <div class="select-wrapper">
+          <select name="select" id="select">
+            <option id="opt" value="profession">Profession</option>
+            <option id="opt" value="developer">Developer</option>
+            <option id="opt" value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="cardAll" id="cardAll">
+          <!-- <div class="resultBox">
+            <h5>id:</h5>
+            <h5>Name:</h5>
+            <h5>Profession:</h5>
+            <h5>Age:</h5>
+          </div> -->
+          <!-- <div class="resultBox">
+            <h5>id:</h5>
+            <h5>Name:</h5>
+            <h5>Profession:</h5>
+            <h5>Age:</h5>
+          </div> -->
+        </div>
+        <button onclick="filterresult()">Filter</button>
+      </div>
+      <div class="addSection">
+        <h1>Add a new user</h1>
+        <form action="">
+          <label for="">Enter Name</label>
+          <label for="">Enter Profession</label>
+          <label for="">Enter Age</label>
+          <input type="text" id="name" required />
+          <input type="text" id="prof" required />
+          <input type="number" id="age" required />
+          <button class="adduser" onclick="clicknclick()">Add User</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

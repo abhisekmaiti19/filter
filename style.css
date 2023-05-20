@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: aliceblue;
+  font-family: Poppins;
+  background-color: rgb(0, 0, 0);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  /* border: 2px white dashed; */
+}
+
+.filter {
+  font-size: 26px;
+  width: 100%;
+  height: 70vh;
+  padding-left: 50px;
+  padding-top: 50px;
+  /* border: 1px dashed white; */
+  /* border: 1px white solid; */
+  display: flex;
+  flex-direction: column;
+}
+.select-wrapper {
+  margin-top: 30px;
+  padding-left: 60px;
+  padding-right: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  border: 0.5px solid;
+  width: 196px;
+  height: 58px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+select {
+  appearance: none;
+  border: none;
+  font-size: 15px;
+  width: 90px;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 0.8rem;
+  position: absolute;
+  right: 35px;
+  top: 20px;
+}
+
+.cardAll {
+  margin-top: 10px;
+  width: 90%;
+  height: 50%;
+  /* border: 1px white solid; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  padding-top: 10px;
+  /* padding-left: 10px; */
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  overflow-y: scroll;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(0, 0, 0);
+  /* width: 50px; */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(246, 246, 246);
+  border-radius: 20px;
+  /* margin-right: 20px; */
+}
+
+/* .cardAll ::-webkit-scrollbar {
+  width: 20px;
+} */
+
+.resultBox {
+  /* margin-top: 40px; */
+  margin-top: 2px;
+  margin-bottom: 10px;
+  width: 536px;
+  min-height: 59px;
+  border-radius: 10px;
+  display: flex;
+  border: 1px solid white;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
+}
+
+button {
+  width: 226px;
+  height: 58px;
+  font-size: 20px;
+  margin-top: 10px;
+  color: black;
+  background-color: white;
+  border: 1px rgb(0, 0, 0) solid;
+  cursor: pointer;
+}
+
+.addSection {
+  margin-top: 10px;
+  padding: top 20px;
+  padding-left: 50px;
+  display: grid;
+}
+
+.addSection form {
+  margin-top: 2px;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+form input {
+  width: 25vw;
+  height: 56px;
+  border-radius: 10px;
+  border: white 1px solid;
+  padding: 15px;
+}
+
+form label {
+  width: 15vw;
+}
+
+.adduser {
+  width: 226px;
+  height: 58px;
+  font-size: 20px;
+  margin-top: 20px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border: 1px rgb(0, 0, 0) solid;
+  cursor: pointer;
+}
+
+.addSection h1 {
+  font-size: 28px;
+}
+
+button:hover {
+  background-color: rgb(175, 175, 175);
+  color: aliceblue;
+}
+
+button {
+  border-radius: 5px;
+}
+
+input:focus {
+  border: white 1px solid;
+}
+
+select:focus option {
+  color: rgb(0, 0, 0);
+  padding: 50px;
+}
